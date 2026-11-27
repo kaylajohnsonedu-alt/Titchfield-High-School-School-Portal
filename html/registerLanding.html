@@ -1,0 +1,98 @@
+<!--
+Nathan Mannings - 2501919 Friday 12pm - 2pm
+Damani Williams - 2007591 Friday 12pm - 2pm
+Jamelia Freeman - 2407243 Friday 12pm - 2pm
+Kayla Johnson   - 2409453 Friday 12pm - 2pm
+Mario Creary    - 2504252 Friday 12pm - 2pm
+
+Nathan Mannings- Index Page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Portal | THS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- login.js checks that the visitor is logged in with a role allowed on this page -->
+    <script src="../js/login.js"></script>
+    <script>checkTeacher();</script>
+</head>
+<body>
+    <!--site navigation-->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="../assets/logo.png" alt="Titchfield High School logo" class="logo">
+        </a>
+        <nav aria-label="Main menu">
+          <ul>
+            <li><a href="registerLanding.html" aria-current="page">Home</a></li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Students</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="matrix.html">Dashboard</a></li>
+                  <li><a href="profile.html">Student Profile</a></li>
+                  <li><a href="teacher.html">Teacher</a></li>
+                  <li><a href="grade.html">Grade</a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Finance</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="search.html">Query Wizard</a></li>
+                  <li><a href="reports.html">Reports</a></li>
+                  <li><a href="tranHistory.html">Transactions</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <script src="../js/role-nav.js"></script>
+
+    <main>
+        <div class="banner">
+            <div class="title-wrap">
+                <h1>Welcome to our Teachers Portal</h1>
+                <h2>Greatness starts here</h2>
+                
+                <div class="form-container" style="text-align: center; margin-top: 30px;">
+                    
+                    <a href="teacher.html" class="btn" style="display: inline-block; text-decoration: none; box-sizing: border-box; line-height: normal; padding: 12px 24px;">Open Teacher Dashboard</a>
+                    <a href="index.html" class="btn" style="display: inline-block; text-decoration: none; box-sizing: border-box; line-height: normal; padding: 12px 24px; margin-left: 10px;">Return to Main Page</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <section>
+                <h3>Titchfield High School</h3>
+                <p>22 Fort George Street,<br>Port Antonio, Portland</p>
+                <p><i class="material-icons" aria-hidden="true">phone</i> 876-715-6051</p>
+                <p><i class="material-icons" aria-hidden="true">phone_android</i> 876-878-4181</p>
+                <p><i class="material-icons" aria-hidden="true">email</i> info@titchfieldhigh.edu.jm</p>
+            </section>
+            <section>
+                <h3>Quick Links</h3>
+                <p><a href="about.html#academics">Academics</a></p>
+                <p><a href="about.html#admissions">Admissions</a></p>
+                <p><a href="about.html#community">Community</a></p>
+            </section>
+            <section>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/titchfieldhigh/"><i class="material-icons" aria-hidden="true">laptop_chromebook</i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/titchfieldhighschool/"><i class="material-icons" aria-hidden="true">camera_enhance</i> Instagram</a></p>
+            </section>
+        </div>
+        <p class="copyright">&copy; 2026 Titchfield High School. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

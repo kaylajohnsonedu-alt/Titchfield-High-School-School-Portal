@@ -1,0 +1,141 @@
+<!--
+Nathan Mannings - 2501919 Friday 12pm - 2pm
+Damani Williams - 2007591 Friday 12pm - 2pm
+Jamelia Freeman - 2407243 Friday 12pm - 2pm
+Kayla Johnson   - 2409453 Friday 12pm - 2pm
+Mario Creary    - 2504252 Friday 12pm - 2pm
+
+Nathan Mannings- Student Profile
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile | THS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/common.css">
+    <!--any logged-in user may view profiles; only an administrator may edit or delete them-->
+    <script src="../js/login.js"></script>
+    <script>checkAuth();</script>
+</head>
+<body>
+    <!--site navigation-->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="../assets/logo.png" alt="Titchfield High School logo" class="logo">
+        </a>
+        <nav aria-label="Main menu">
+          <ul>
+            <li><a href="registerLanding.html">Home</a></li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Students</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="register.html">Register</a></li>
+                  <li><a href="profile.html" aria-current="page">Student Profile</a></li>
+                  <li><a href="matrix.html">Academic Matrix</a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Finance</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="search.html">Query Wizard</a></li>
+                  <li><a href="financialLedger.html">Financial Ledger</a></li>
+                  <li><a href="reports.html">Reports</a></li>
+                  <li><a href="tranHistory.html">Transactions</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <script src="../js/role-nav.js"></script>
+    <main>
+        <div class="banner">
+            <div class="title-wrap">
+                <h1>Enrolled Student Profiles</h1>
+                <div class="line"></div>
+
+                <!--filter the profile cards by student name or ID number-->
+                <form class="filters profile-search" id="profileSearchForm" role="search">
+                    <label for="profileSearch">Student Name or ID:</label>
+                    <input type="search" id="profileSearch" placeholder="Search by name or ID number">
+                    <!--cohort filter: students enrolled in one semester (options filled by profile.js)-->
+                    <label for="profileSemesterFilter">Semester:</label>
+                    <select id="profileSemesterFilter"></select>
+                    <button type="submit"><b>Search</b></button>
+                </form>
+                <p id="profileSearchMessage" class="profile-search-message" role="status" aria-live="polite"></p>
+
+                <!--profile.js copies this card once for every saved student-->
+                <div id="cards-container">
+                <div class="form-container profile-card-container profile-card">
+                    
+                    <!-- Student Image Display -->
+                    <div class="profile-img-container" style="text-align: center; margin-bottom: 20px;">
+                        <img id="cardAvatar" src="" alt="Student Photo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #2c3e50;">
+                    </div>
+                    <div class="profile-info">
+                        <h3>Personal Information</h3>
+                        <p><strong>Student ID:</strong> <span id="cardStudentId"></span></p>
+                        <p><strong>Full Name:</strong> <span id="cardFullName"></span></p>
+                        <p><strong>Address:</strong> <span id="cardAddress"></span></p>
+                        <p><strong>Email:</strong> <span id="cardEmail"></span></p>
+                        <p><strong>Date of Birth:</strong> <span id="cardDOB"></span></p>
+                        <p><strong>Grade Level:</strong> <span id="cardGrade"></span></p>
+                        <p><strong>Enrollment Semester:</strong> <span id="cardSemester"></span></p>
+                        <p><strong>Previous School:</strong> <span id="cardPrevSchool"></span></p>
+
+                        <h3 style="margin-top: 20px;">Parent / Guardian Information</h3>
+                        <p><strong>Name:</strong> <span id="cardPGName"></span></p>
+                        <p><strong>Contact Number:</strong> <span id="cardPGContact"></span></p>
+                    </div>
+
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <a href="edit.html" class="btn edit-profile-link" style="text-align: center; text-decoration: none; display: block; flex: 1;">Edit Information</a>
+                    </div>
+
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <a href="registerLanding.html" class="btn home-link" style="text-align: center; text-decoration: none; display: block; flex: 1;">Return to Home Page</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <section>
+                <h3>Titchfield High School</h3>
+                <p>22 Fort George Street,<br>Port Antonio, Portland</p>
+                <p><i class="material-icons" aria-hidden="true">phone</i> 876-715-6051</p>
+                <p><i class="material-icons" aria-hidden="true">phone_android</i> 876-878-4181</p>
+                <p><i class="material-icons" aria-hidden="true">email</i> info@titchfieldhigh.edu.jm</p>
+            </section>
+            <section>
+                <h3>Quick Links</h3>
+                <p><a href="about.html#academics">Academics</a></p>
+                <p><a href="about.html#admissions">Admissions</a></p>
+                <p><a href="about.html#community">Community</a></p>
+            </section>
+            <section>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/titchfieldhigh/"><i class="material-icons" aria-hidden="true">laptop_chromebook</i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/titchfieldhighschool/"><i class="material-icons" aria-hidden="true">camera_enhance</i> Instagram</a></p>
+            </section>
+        </div>
+        <p class="copyright">&copy; 2026 Titchfield High School. All rights reserved.</p>
+    </footer>
+
+  
+    <script src="../js/finance-common.js" defer></script>
+    <!--shared semester list and the active semester-->
+    <script src="../js/school-data.js" defer></script>
+    <script src="../js/profile.js" defer></script>
+</body>
+</html>

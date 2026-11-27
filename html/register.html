@@ -1,0 +1,223 @@
+<!--Nathan Mannings - 2501919 Friday 12pm - 2pm
+Damani Williams - 2007591 Friday 12pm - 2pm
+Jamelia Freeman - 2407243 Friday 12pm - 2pm
+Kayla Johnson   - 2409453 Friday 12pm - 2pm
+Mario Creary    - 2504252 Friday 12pm - 2pm
+
+Nathan Mannings- Forms to register students-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registration | THS </title>
+    <!--google material icons used in the footer-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--shared stylesheet for every page-->
+    <link rel="stylesheet" href="../css/common.css">
+    <!--only an administrator may register students-->
+    <script src="../js/login.js"></script>
+    <script>checkAdmin();</script>
+</head>
+<body>
+    <!--site navigation-->
+    <header>
+        <!--school logo links back to the main page-->
+        <a href="index.html" class="logo-container">
+            <img src="../assets/logo.png" alt="Titchfield High School logo" class="logo">
+        </a>
+        <!--main menu-->
+        <nav aria-label="Main menu">
+          <ul>
+            <li><a href="registerLanding.html">Home</a></li>
+            <!--students dropdown menu-->
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Students</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="register.html" aria-current="page">Register</a></li>
+                  <li><a href="profile.html">Student Profile</a></li>
+                  <li><a href="matrix.html">Academic Matrix</a></li>
+                </ul>
+              </details>
+            </li>
+            <!--finance dropdown menu-->
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Finance</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="search.html">Query Wizard</a></li>
+                  <li><a href="financialLedger.html">Financial Ledger</a></li>
+                  <li><a href="reports.html">Reports</a></li>
+                  <li><a href="tranHistory.html">Transactions</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <script src="../js/role-nav.js"></script>
+
+    <!--main page content-->
+    <main>
+        <div class="banner">
+            <div class="title-wrap">
+                <!--page title-->
+                <h1>Registration Form</h1>
+                <div class="line"></div>
+
+                <!--student registration form-->
+                <div class="form-container">
+                    <form id="registration-form">
+
+                        <!--student photo upload-->
+                        <div class="form-group">
+                            <label for="avatar">Upload an Image of Student (JPEG/PNG, max 500KB):</label>
+                            <input type="file" id="avatar" name="avatar" accept="image/jpeg, image/png" required>
+                        </div>
+
+                        <!--student first name-->
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text" id="fname" name="fname" placeholder="John" pattern="(?=.*\S)\P{N}+" title="Use letters and punctuation only." required>
+                        </div>
+
+                        <!--student middle name-->
+                        <div class="form-group">
+                            <label for="Mname">Middle Name:</label>
+                            <input type="text" id="Mname" name="Mname" placeholder="Alphonsus" pattern="(?=.*\S)\P{N}+" title="Use letters and punctuation only." required>
+                        </div>
+
+                        <!--student last name-->
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" id="lname" name="lname" placeholder="Doe" pattern="(?=.*\S)\P{N}+" title="Use letters and punctuation only." required>
+                        </div>
+
+                        <!--home address-->
+                        <div class="form-group">
+                            <label for="adress">Address:</label>
+                            <input type="text" id="adress" name="address" placeholder="12 Hope Road" pattern=".*\S.*" title="Enter an address." required>
+                        </div>
+
+                        <!--email address-->
+                        <div class="form-group">
+                            <label for="emailL">Email:</label>
+                            <input type="email" id="emailL" name="email" placeholder="placeholder@example.com" required>
+                        </div>
+
+                        <!--date of birth checked by validation script-->
+                        <div class="form-group">
+                            <label for="DOB">Date of Birth:</label>
+                            <input type="date" id="DOB" name="DOB" required>
+                        </div>
+
+                        <!--grade level from 7 to 13-->
+                        <div class="form-group">
+                            <label for="gradelvl">Grade Level:</label>
+                            <select id="gradelvl" name="gradelvl" required>
+                                <option value="">Select Grade Level</option>
+                                <option value="Grade 7">Grade 7</option>
+                                <option value="Grade 8">Grade 8</option>
+                                <option value="Grade 9">Grade 9</option>
+                                <option value="Grade 10">Grade 10</option>
+                                <option value="Grade 11">Grade 11</option>
+                                <option value="Grade 12">Grade 12</option>
+                                <option value="Grade 13">Grade 13</option>
+                            </select>
+                        </div>
+
+                        <!--enrollment semester: grade level + semester classify the student's cohort (filled from school-data.js, defaults to the active semester)-->
+                        <div class="form-group">
+                            <label for="enrollSemester">Enrollment Semester:</label>
+                            <select id="enrollSemester" name="enrollSemester" required></select>
+                        </div>
+
+                        <!--previous school attended-->
+                        <div class="form-group">
+                            <label for="PrevSchool">Previous School:</label>
+                            <input type="text" id="PrevSchool" name="PrevSchool" placeholder="Kingston College" pattern=".*\S.*" title="Enter the previous school." required>
+                        </div>
+
+                        <!--parent or guardian section-->
+                        <h3>Parent / Guardian Information</h3>
+
+                        <!--parent or guardian first name-->
+                        <div class="form-group">
+                            <label for="PGname">Parent/Guardian First Name:</label>
+                            <input type="text" id="PGname" name="PGname" placeholder="Jane" pattern="(?=.*\S)\P{N}+" title="Use letters and punctuation only." required>
+                        </div>
+
+                        <!--parent or guardian last name-->
+                        <div class="form-group">
+                            <label for="PGlname">Parent/Guardian Last Name:</label>
+                            <input type="text" id="PGlname" name="PGLname" placeholder="Doe" pattern="(?=.*\S)\P{N}+" title="Use letters and punctuation only." required>
+                        </div>
+
+                        <!--parent or guardian phone number must be 10 digits-->
+                        <div class="form-group">
+                            <label for="PGcontact">Parent/Guardian Contact Number:</label>
+                            <input type="tel" id="PGcontact" name="PGcontact" placeholder="1234567890" inputmode="numeric" pattern="[0-9]{10}" minlength="10" maxlength="10" title="Enter exactly 10 digits with no spaces or symbols." required>
+                        </div>
+
+                        <!--confirmation that the details are correct-->
+                        <div class="form-group">
+                            <label>I can confirm that all the information entered above is correct:</label>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+                                <input type="radio" id="confirm" name="confirm" value="confirm" required>
+                                <label for="confirm" style="margin-bottom: 0;">Confirm</label>
+                            </div>
+                        </div>
+
+
+                        <!--submit saves the student and opens their profile-->
+                        <button type="submit" class="btn">Submit</button>
+
+
+                        <!--return to the admin portal-->
+                        <a href="adminIndex.html" class="btn" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box; line-height: normal; padding-top: 10px; margin-top: 10px;">Return</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--site footer-->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!--school address and contact details-->
+            <section>
+                <h3>Titchfield High School</h3>
+                <p>22 Fort George Street,<br>Port Antonio, Portland</p>
+                <p><i class="material-icons" aria-hidden="true">phone</i> 876-715-6051</p>
+                <p><i class="material-icons" aria-hidden="true">phone_android</i> 876-878-4181</p>
+                <p><i class="material-icons" aria-hidden="true">email</i> info@titchfieldhigh.edu.jm</p>
+            </section>
+            <!--quick links to the about page-->
+            <section>
+                <h3>Quick Links</h3>
+                <p><a href="about.html#academics">Academics</a></p>
+                <p><a href="about.html#admissions">Admissions</a></p>
+                <p><a href="about.html#community">Community</a></p>
+            </section>
+            <!--social media links-->
+            <section>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/titchfieldhigh/"><i class="material-icons" aria-hidden="true">laptop_chromebook</i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/titchfieldhighschool/"><i class="material-icons" aria-hidden="true">camera_enhance</i> Instagram</a></p>
+            </section>
+        </div>
+        <p class="copyright">&copy; 2026 Titchfield High School. All rights reserved.</p>
+    </footer>
+
+    <!--shared semester list and the active semester-->
+    <script src="../js/school-data.js" defer></script>
+    <!--creates the student id number-->
+    <script src="../js/student-id.js" defer></script>
+    <!--saves the registration form-->
+    <script src="../js/form.js" defer></script>
+    <!--checks the form fields before saving-->
+    <script src="../js/validation.js" defer></script>
+</body>
+</html>

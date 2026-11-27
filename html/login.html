@@ -1,0 +1,185 @@
+<!-- 
+Nathan Mannings - 2501919 Friday 12pm - 2pm
+Damani Williams - 2007591 Friday 12pm - 2pm
+Jamelia Freeman - 2407243 Friday 12pm - 2pm 
+Kayla Johnson   - 2409453 Friday 12pm - 2pm
+Mario Creary    - 2504252 Friday 12pm - 2pm
+
+By Damani Williams
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Defines the character encoding to support a wide range of characters -->
+    <meta charset="UTF-8" />
+
+    <!-- Makes the webpage responsive to different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Establishes early connections to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Imports Libre Baskerville font -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <!-- Imports Courier Prime font -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Imports Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Links the external CSS file responsible for styling the login page -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/common.css" />
+
+    <!-- Sets the title displayed in the browser tab -->
+    <title>Login | THS</title>
+
+    <!-- Links the JavaScript file and defers execution until the HTML is parsed -->
+  <script src="../js/login.js" defer></script>
+    
+  </head>
+
+  <body class="has-sidebar">
+
+    <!-- Site Navigation Drawer -->
+    <nav class="sidebar" aria-label="Main menu">
+        <ul>
+            <li>
+                <a href="index.html" class="sidebar-brand">
+                    <span class="icon"><i class="material-icons" aria-hidden="true">school</i></span>
+                    <span class="text">THS</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><i class="material-icons" aria-hidden="true">home</i></span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="about.html">
+                    <span class="icon"><i class="material-icons" aria-hidden="true">diversity_3</i></span>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
+            <li>
+                <a href="contact.html">
+                    <span class="icon"><i class="material-icons" aria-hidden="true">email</i></span>
+                    <span class="text">Contact Us</span>
+                </a>
+            </li>
+            <li>
+                <a href="viewer.html">
+                    <span class="icon"><i class="material-icons" aria-hidden="true">visibility</i></span>
+                    <span class="text">View Only</span>
+                </a>
+            </li>
+            <li>
+                <a href="login.html" aria-current="page">
+                    <span class="icon"><i class="material-icons" aria-hidden="true">login</i></span>
+                    <span class="text">Login</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header section containing the website logo -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="../assets/logo.png" alt="Titchfield High School logo" class="logo">
+        </a>
+    </header>
+
+    <!-- Main section containing the login form -->
+    <main>
+
+      <!-- Container groups the login heading and form together -->
+      <div class="login-container">
+
+        <!-- Heading identifying the purpose of the page -->
+        <h2 style="color: #000;">School Management Login</h2>
+
+        <!-- Login form; its ID allows JavaScript to access and handle form submission -->
+        <form id="loginForm">
+
+          <!-- Form group containing the username label and input -->
+          <div class="form-group">
+            <label for="username">Username</label>
+
+            <!-- Accepts the user's username; required prevents empty submission -->
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter username"
+              required>
+          </div>
+
+          <!-- Form group containing the password label and input -->
+          <div class="form-group">
+            <label for="password">Password</label>
+
+            <!-- Password input masks the characters entered by the user -->
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              required>
+          </div>
+
+          <!-- Form group containing the role selection menu -->
+          <div class="form-group">
+            <label for="role">Role</label>
+
+            <!-- Dropdown menu allows the user to select their account role -->
+            <select id="role" required>
+
+              <!-- Default option prompts the user to select a role -->
+              <option value="">Select Role</option>
+
+              <!-- Available account roles -->
+              <option value="administrator">Administrator</option>
+              <option value="teacher">Teacher</option>
+              <option value="viewer">Viewer (read-only)</option>
+            </select>
+          </div>
+
+          <!-- Submits the login form and triggers its JavaScript submit handler -->
+          <button type="submit">Login</button>
+
+          <!-- Empty paragraph where JavaScript can display login messages -->
+          <p id="message"></p>
+
+        </form>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <section>
+                <h3>Titchfield High School</h3>
+                <p>22 Fort George Street,<br>Port Antonio, Portland</p>
+                <p><i class="material-icons" aria-hidden="true">phone</i> 876-715-6051</p>
+                <p><i class="material-icons" aria-hidden="true">phone_android</i> 876-878-4181</p>
+                <p><i class="material-icons" aria-hidden="true">email</i> info@titchfieldhigh.edu.jm</p>
+            </section>
+            <section>
+                <h3>Quick Links</h3>
+                <p><a href="about.html#academics">Academics</a></p>
+                <p><a href="about.html#admissions">Admissions</a></p>
+                <p><a href="about.html#community">Community</a></p>
+            </section>
+            <section>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/titchfieldhigh/"><i class="material-icons" aria-hidden="true">laptop_chromebook</i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/titchfieldhighschool/"><i class="material-icons" aria-hidden="true">camera_enhance</i> Instagram</a></p>
+            </section>
+        </div>
+        <p class="copyright">&copy; 2026 Titchfield High School. All rights reserved.</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--
+Mario Creary    - 2504252 Friday 12pm - 2pm
+Nathan Mannings - 2501919 Friday 12pm - 2pm
+Damani Williams - 2007591 Friday 12pm - 2pm
+Jamelia Freeman - 2407243 Friday 12pm - 2pm
+Kayla Johnson   - 2409453 Friday 12pm - 2pm
+
+By Mario Creary
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Workflow | Titchfield High School</title>
+    <!-- The style.css file contains general styles for the entire website. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- The login.js file contains a function that will be called to verify if this person is authorized to be on this page. -->
+    <script src="../js/login.js"></script>
+    <script>
+        checkTeacher();
+    </script>
+</head>
+
+<body>
+
+    <!-- The header contains the school logo and name as well as a link back to the home page. -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="../assets/logo.png" alt="Titchfield High School logo" class="logo">
+        </a>
+        <nav aria-label="Main menu">
+          <ul>
+            <li><a href="registerLanding.html">Home</a></li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Students</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="matrix.html">Dashboard</a></li>
+                  <li><a href="search.html">Query</a></li>
+                  <li><a href="profile.html">Student Profile</a></li>
+                  <li><a href="teacher.html" aria-current="page">Teacher</a></li>
+                  <li><a href="grade.html">Grade</a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Finance</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="search.html">Query Wizard</a></li>
+                  <li><a href="reports.html">Reports</a></li>
+                  <li><a href="tranHistory.html">Transactions</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><button type="button" id="logoutButton" class="nav-button">Logout</button></li>
+          </ul>
+        </nav>
+    </header>
+    <script src="../js/role-nav.js"></script>
+
+    <main>
+        <div class="banner">
+            <div class="title-wrap teacher-wrap">
+
+                <h2>Teacher Workflow</h2>
+
+                <!-- This section displays the teacher's progress through the workflow steps. -->
+                <section>
+                    <h3>Your progress</h3>
+                    <p id="progressText" aria-live="polite">Step 1 of 3</p>
+                    <ol class="progress-list">
+                        <li id="progress1" class="active">Subject</li>
+                        <li id="progress2">Class</li>
+                        <li id="progress3">Report card</li>
+                    </ol>
+                </section>
+
+                <!-- This section allows the teacher to choose a subject from a dropdown menu. -->
+                <section id="step1" class="step-panel">
+                    <h2>Step 1: Choose a subject</h2>
+                    <label for="subjectSelect">Subject</label>
+                    <select id="subjectSelect">
+                        <option value="">-- Select one of the subjects --</option>
+                    </select>
+                    <p id="step1Message" class="message" role="alert"></p>
+                </section>
+
+                <!-- This section allows the teacher to choose a class from a dropdown menu and displays the students in that class. -->
+                <section id="step2" class="step-panel hidden">
+                    <h2>Step 2: Choose a class</h2>
+                    <label for="gradeSelect">Grade Level</label>
+                    <select id="gradeSelect">
+                        <option value="">-- Select Grade Level --</option>
+                    </select>
+                    <h3>Students in this class</h3>
+                    <ul id="classList"></ul>
+                    <p id="step2Message" class="message" role="alert"></p>
+                </section>
+
+                <!-- This section displays one student's report card or all students' report cards. -->
+                <section id="step3" class="step-panel hidden">
+                    <h2>Step 3: Report cards</h2>
+                    <p>Class statistics below are for the selected subject and include students with complete assessment results.</p>
+                    <label for="reportStudentSelect">Student</label>
+                    <select id="reportStudentSelect">
+                        <option value="">-- Select a student --</option>
+                        <option value="all">-- View all students --</option>
+                    </select>
+                    <div id="classStatsContainer">
+                        <p>Class Average: <span id="classAverage">0</span></p>
+                        <p>Highest Grade: <span id="classHighest">0</span></p>
+                        <p>Lowest Grade: <span id="classLowest">0</span></p>
+                        <p>Pass Rate: <span id="classPassRate">0</span></p>
+                    </div>
+                    <div id="gradeLegend" class="grade-legend">
+                        <h3>Letter Grade Key</h3>
+                        <p><strong>A:</strong> 80–100%</p>
+                        <p><strong>B:</strong> 70–79.9%</p>
+                        <p><strong>C:</strong> 60–69.9%</p>
+                        <p><strong>D:</strong> 50–59.9%</p>
+                        <p><strong>E:</strong> 40–49.9%</p>
+                        <p><strong>F:</strong> Below 40%</p>
+                    </div>
+                    <div id="reportCardContainer"></div>
+                </section>
+
+                <!-- Navigation buttons -->
+                <div class="step-buttons">
+                    <button type="button" id="backButton">Back</button>
+                    <button type="button" id="nextButton">Next</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <section>
+                <h3>Titchfield High School</h3>
+                <p>22 Fort George Street,<br>Port Antonio, Portland</p>
+                <p><i class="material-icons" aria-hidden="true">phone</i> 876-715-6051</p>
+                <p><i class="material-icons" aria-hidden="true">phone_android</i> 876-878-4181</p>
+                <p><i class="material-icons" aria-hidden="true">email</i> info@titchfieldhigh.edu.jm</p>
+            </section>
+            <section>
+                <h3>Quick Links</h3>
+                <p><a href="about.html#academics">Academics</a></p>
+                <p><a href="about.html#admissions">Admissions</a></p>
+                <p><a href="about.html#community">Community</a></p>
+            </section>
+            <section>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/titchfieldhigh/"><i class="material-icons" aria-hidden="true">laptop_chromebook</i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/titchfieldhighschool/"><i class="material-icons" aria-hidden="true">camera_enhance</i> Instagram</a></p>
+            </section>
+        </div>
+        <p class="copyright">&copy; 2026 Titchfield High School. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/grades.js"></script>
+    <script src="../js/school-data.js"></script>
+    <script src="../js/teacher.js"></script>
+</body>
+</html>

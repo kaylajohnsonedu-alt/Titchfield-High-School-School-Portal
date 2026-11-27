@@ -1,0 +1,223 @@
+<!--
+Nathan Mannings - 2501919 Friday 12pm - 2pm
+Damani Williams - 2007591 Friday 12pm - 2pm
+Jamelia Freeman - 2407243 Friday 12pm - 2pm
+Kayla Johnson   - 2409453 Friday 12pm - 2pm
+Mario Creary    - 2504252 Friday 12pm - 2pm
+
+Nathan Mannings - Academic Matrix
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academic Matrix | THS</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <!-- login.js checks that the visitor is logged in (administrators edit, teachers view) -->
+    <script src="../js/login.js"></script>
+    <script>checkAuth();</script>
+</head>
+
+<body>
+    <!--site navigation-->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="../assets/logo.png" alt="Titchfield High School logo" class="logo">
+        </a>
+        <nav aria-label="Main menu">
+          <ul>
+            <li><a href="registerLanding.html">Home</a></li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Students</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="register.html">Register</a></li>
+                  <li><a href="profile.html">Student Profile</a></li>
+                  <li><a href="matrix.html" aria-current="page">Academic Matrix</a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Finance</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="search.html">Query Wizard</a></li>
+                  <li><a href="financialLedger.html">Financial Ledger</a></li>
+                  <li><a href="reports.html">Reports</a></li>
+                  <li><a href="tranHistory.html">Transactions</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <script src="../js/role-nav.js"></script>
+
+    <main>
+
+        <h2 class="h2" id="dashboardHeading">System Administrator Dashboard</h2>
+
+        <div class="rectangle-matrix1">
+
+            <div class="rectangle-container">
+
+                <div class="rectangle-matrix2">
+
+                    <div class="row">
+
+                        <form id="filter-form">
+
+                            <div class="form-group">
+
+                                <label class="label" for="semester">
+                                    Active Semester:
+                                </label>
+
+                                <!-- options are filled by matrix.js from the shared semester list in school-data.js;
+                                     the semester an administrator picks here becomes the active semester for the site -->
+                                <select class="input" id="semester" name="semester" required>
+                                </select>
+
+                                <p id="activeSemesterNote" class="semester-note" role="status" aria-live="polite"></p>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="rectangle-matrix3">
+
+                    <section class="grid-card">
+
+                        <div class="grid-header">
+
+                            <h2>Academic Matrix - Student Grade Data Grid</h2>
+
+                            <button type="button" class="btn-save" id="saveGrades">
+                                Save Grades
+                            </button>
+
+                        </div>
+
+                        <div class="table-wrapper">
+
+                            <table class="grade-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th rowspan="2" class="col-id" scope="col">
+                                            Student ID
+                                        </th>
+
+                                        <th rowspan="2" class="col-name" scope="col">
+                                            Student Name
+                                        </th>
+
+                                        <th colspan="5" class="group-header" scope="colgroup">
+                                            Current Subjects
+                                        </th>
+
+                                        <th rowspan="2" class="col-action" scope="col">
+                                            Actions
+                                        </th>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th scope="col">Mathematics</th>
+                                        <th scope="col">Science</th>
+                                        <th scope="col">English</th>
+                                        <th scope="col">History</th>
+                                        <th scope="col">Computer Science</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="gradeGridBody">
+
+                                    <!-- Student records will be generated using JavaScript -->
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <div class="grid-footer">
+
+                            <span class="record-count" id="recordCount">
+                                Showing 0 of 0 students
+                            </span>
+
+                            <!-- Previous / page number / Next buttons are created by matrix.js -->
+                            <div class="pagination" id="matrixPagination"></div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+                <div class="square">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div>
+            <!-- role-nav.js points this to the logged-in user's home page -->
+            <a href="adminIndex.html" class="btn home-link">
+                Return to Home Screen
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <section>
+                <h3>Titchfield High School</h3>
+                <p>22 Fort George Street,<br>Port Antonio, Portland</p>
+                <p><i class="material-icons" aria-hidden="true">phone</i> 876-715-6051</p>
+                <p><i class="material-icons" aria-hidden="true">phone_android</i> 876-878-4181</p>
+                <p><i class="material-icons" aria-hidden="true">email</i> info@titchfieldhigh.edu.jm</p>
+            </section>
+            <section>
+                <h3>Quick Links</h3>
+                <p><a href="about.html#academics">Academics</a></p>
+                <p><a href="about.html#admissions">Admissions</a></p>
+                <p><a href="about.html#community">Community</a></p>
+            </section>
+            <section>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/titchfieldhigh/"><i class="material-icons" aria-hidden="true">laptop_chromebook</i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/titchfieldhighschool/"><i class="material-icons" aria-hidden="true">camera_enhance</i> Instagram</a></p>
+            </section>
+        </div>
+        <p class="copyright">&copy; 2026 Titchfield High School. All rights reserved.</p>
+    </footer>
+
+    <!-- shared semester list and the active semester -->
+    <script src="../js/school-data.js"></script>
+    <!-- draws and saves the grade grid -->
+    <script src="../js/matrix.js"></script>
+    <script src="../js/validation.js"></script>
+
+</body>
+</html>

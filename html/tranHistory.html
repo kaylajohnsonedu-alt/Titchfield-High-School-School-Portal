@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+    Nathan Mannings - 2501919 Friday 12pm - 2pm
+    Damani Williams - 2007591 Friday 12pm - 2pm
+    Jamelia Freeman - 2407243 Friday 12pm - 2pm
+    Kayla Johnson   - 2409453 Friday 12pm - 2pm
+    Mario Creary    - 2504252 Friday 12pm - 2pm
+
+    Jamelia Freeman - Finance and Reporting
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/common.css" />
+    <title>Transaction History | THS</title>
+    <!-- login.js checks that the visitor is logged in with a role allowed on this page -->
+    <script src="../js/login.js"></script>
+    <script>checkAuth();</script>
+  </head>
+  <body>
+    <!--site navigation-->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="../assets/logo.png" alt="Titchfield High School logo" class="logo">
+        </a>
+        <nav aria-label="Main menu">
+          <ul>
+            <li><a href="registerLanding.html">Home</a></li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Students</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="register.html">Register</a></li>
+                  <li><a href="profile.html">Student Profile</a></li>
+                  <li><a href="matrix.html">Academic Matrix</a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="dropdown">
+              <details name="site-nav">
+                <summary>Finance</summary>
+                <ul class="dropdown-menu">
+                  <li><a href="search.html">Query Wizard</a></li>
+                  <li><a href="financialLedger.html">Financial Ledger</a></li>
+                  <li><a href="reports.html">Reports</a></li>
+                  <li><a href="tranHistory.html" aria-current="page">Transactions</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <script src="../js/role-nav.js"></script>
+    <!--transaction history content-->
+    <main>
+      <div class="history-heading">
+        <h1>Transaction History</h1>
+      </div>
+
+      <!--transaction rows are populated by TranHistory.js-->
+      <div class="table-responsive" role="region" aria-label="Transaction history" tabindex="0">
+        <table class="ledger-table">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Transaction Number</th>
+              <th>Transaction Amount</th>
+              <th>Transaction Date</th>
+              <th>Transaction Type</th>
+              <th class="admin-only">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tranHistory">
+            <!--transaction history entries will be dynamically added here-->
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <section>
+                <h3>Titchfield High School</h3>
+                <p>22 Fort George Street,<br>Port Antonio, Portland</p>
+                <p><i class="material-icons" aria-hidden="true">phone</i> 876-715-6051</p>
+                <p><i class="material-icons" aria-hidden="true">phone_android</i> 876-878-4181</p>
+                <p><i class="material-icons" aria-hidden="true">email</i> info@titchfieldhigh.edu.jm</p>
+            </section>
+            <section>
+                <h3>Quick Links</h3>
+                <p><a href="about.html#academics">Academics</a></p>
+                <p><a href="about.html#admissions">Admissions</a></p>
+                <p><a href="about.html#community">Community</a></p>
+            </section>
+            <section>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/titchfieldhigh/"><i class="material-icons" aria-hidden="true">laptop_chromebook</i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/titchfieldhighschool/"><i class="material-icons" aria-hidden="true">camera_enhance</i> Instagram</a></p>
+            </section>
+        </div>
+        <p class="copyright">&copy; 2026 Titchfield High School. All rights reserved.</p>
+    </footer>
+    <script src="../js/finance-common.js"></script>
+    <script src="../js/TranHistory.js"></script>
+  </body>
+
+</html>
