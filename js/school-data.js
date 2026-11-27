@@ -60,10 +60,22 @@ const SCHOOL_SUBJECTS_KEY = "sp_subjects";
 //same subjects as the Academic Matrix page, so grades line up across the site
 const DEFAULT_SCHOOL_SUBJECTS = [
     { code: "MATH", name: "Mathematics" },
-    { code: "SCI", name: "Science" },
-    { code: "ENG", name: "English" },
+    { code: "AMATH", name: "Additional Mathematics" },
+    { code: "ENGLANG", name: "English Language" },
+    { code: "ENGLIT", name: "English Literature" },
+    { code: "BIO", name: "Biology" },
+    { code: "CHEM", name: "Chemistry" },
+    { code: "PHYS", name: "Physics" },
     { code: "HIST", name: "History" },
-    { code: "CS", name: "Computer Science" }
+    { code: "GEOG", name: "Geography" },
+    { code: "SOCST", name: "Social Studies" },
+    { code: "IT", name: "Information Technology" },
+    { code: "VA", name: "Visual Arts" },
+    { code: "MUS", name: "Music" },
+    { code: "TD", name: "Technical Drawing" },
+    { code: "SPAN", name: "Spanish" },
+    { code: "FREN", name: "French" },
+    { code: "PE", name: "Physical Education" }
 ];
 
 function readSchoolList(key) {

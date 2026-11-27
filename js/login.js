@@ -31,8 +31,8 @@ const DEFAULT_USERS = [
 ];
 
 const DEFAULT_TEACHERS = [
-    { teacherId: "T001", name: "Ms. McLeod", subjects: ["MATH", "SCI", "CS"] },
-    { teacherId: "T002", name: "Ms. Elliot", subjects: ["ENG", "HIST"] }
+    { teacherId: "T001", name: "Ms. McLeod", subjects: ["MATH", "AMATH"] },
+    { teacherId: "T002", name: "Ms. Elliot", subjects: ["ENGLANG", "ENGLIT"] }
 ];
 
 

@@ -14,13 +14,8 @@
 const STUDENT_STORAGE_KEY = 'titchfieldStudents';
 const GRADE_STORAGE_KEY = 'titchfieldAcademicMatrixGrades';
 
-const SUBJECTS = [
-  'Mathematics',
-  'Science',
-  'English',
-  'History',
-  'Computer Science'
-];
+//subject names come from the shared list in school-data.js, so the grid matches every other page
+const SUBJECTS = getSchoolSubjects().map((subject) => subject.name);
 
 //how many students are shown on one page of the grid
 const PAGE_SIZE = 10;
@@ -256,7 +251,23 @@ function changeSemester() {
   renderMatrix();
 }
 
+//build one column heading per subject
+function renderSubjectHeaders() {
+  const headerRow = document.getElementById('subjectHeaderRow');
+  const groupHeader = document.getElementById('subjectGroupHeader');
+  if (groupHeader) groupHeader.colSpan = SUBJECTS.length;
+  if (!headerRow) return;
+  headerRow.textContent = '';
+  SUBJECTS.forEach((subject) => {
+    const th = document.createElement('th');
+    th.scope = 'col';
+    th.textContent = subject;
+    headerRow.appendChild(th);
+  });
+}
+
 function initMatrixPage() {
+  renderSubjectHeaders();
   fillSemesterSelect(semesterSelect, getActiveSemester());
   selectedSemester = semesterSelect.value;
   semesterSelect.addEventListener('change', changeSemester);

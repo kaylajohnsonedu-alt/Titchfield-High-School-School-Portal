@@ -181,27 +181,13 @@ function showStep(stepNumber) {
 }
 
 
-// Fills the subject dropdown with the logged-in teacher's subjects (or all subjects if none are linked).
+// Fills the subject dropdown with every subject offered by the school.
 function fillSubjectDropdown() {
-  const username = localStorage.getItem("username");
-  const users = loadData(KEY_USERS, []);
-  const teachers = loadData(KEY_TEACHERS, []);
   const subjects = getSchoolSubjects();
   const subjectSelect = document.getElementById("subjectSelect");
 
-  const currentUser = users.find(u => u.username === username);
-  let currentTeacher = null;
-  if (currentUser) {
-    currentTeacher = teachers.find(t => t.teacherId === currentUser.teacherId);
-  }
-
-  let teacherSubjects = subjects;
-  if (currentTeacher && currentTeacher.subjects) {
-    teacherSubjects = subjects.filter(s => currentTeacher.subjects.includes(s.code));
-  }
-
   subjectSelect.innerHTML = '<option value="">-- Select one of the subjects --</option>';
-  teacherSubjects.forEach(subject => {
+  subjects.forEach(subject => {
     const option = document.createElement("option");
     option.value = subject.code;
     option.textContent = subject.name;
@@ -314,22 +300,28 @@ function showReportCard(studentId, containerOverride) {
   info.textContent = `Grade Level: ${student.gradeLevel} | Semester: ${SEMESTER}`;
   box.append(heading, info);
 
-  if (studentGrades.length === 0) {
-    const noGrades = document.createElement("p");
-    noGrades.textContent = "No grade records found for this student.";
-    box.appendChild(noGrades);
-    container.appendChild(box);
-    return;
-  }
+  // Every school subject is listed, followed by any graded subject codes not in the subject list
+  const subjectCodes = subjects.map(s => s.code);
+  Object.keys(groups).forEach(code => {
+    if (!subjectCodes.includes(code)) subjectCodes.push(code);
+  });
 
   const finalTotals = [];
-  Object.keys(groups).forEach(code => {
+  subjectCodes.forEach(code => {
     const subject = subjects.find(s => s.code === code);
-    const records = groups[code];
-    const result = calculateWeighted(records);
+    const records = groups[code] || [];
     const title = document.createElement("h4");
     title.textContent = subject ? subject.name : code;
     box.appendChild(title);
+
+    if (records.length === 0) {
+      const noGrades = document.createElement("p");
+      noGrades.textContent = "No grades entered yet.";
+      box.appendChild(noGrades);
+      return;
+    }
+
+    const result = calculateWeighted(records);
 
     const table = document.createElement("table");
     table.className = "report-table";

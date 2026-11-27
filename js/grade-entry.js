@@ -64,25 +64,11 @@ function getClassStudents() {
     return getSchoolStudents().filter(student => student.gradeLevel === selectedGradeLevel);
 }
 
+// Every subject offered by the school is listed, not only the ones assigned to the logged-in teacher
 function fillSubjectDropdown() {
-    const username = localStorage.getItem("username");
-    const users = loadData(KEY_USERS, []);
-    const teachers = loadData(KEY_TEACHERS, []);
     const subjects = getSchoolSubjects();
-    const currentUser = users.find(user => user.username === username);
-    let currentTeacher = null;
-
-    if (currentUser) {
-        currentTeacher = teachers.find(teacher => teacher.teacherId === currentUser.teacherId);
-    }
-
-    let teacherSubjects = subjects;
-    if (currentTeacher && Array.isArray(currentTeacher.subjects)) {
-        teacherSubjects = subjects.filter(subject => currentTeacher.subjects.includes(subject.code));
-    }
-
     const select = document.getElementById("subjectSelect");
-    teacherSubjects.forEach(subject => {
+    subjects.forEach(subject => {
         const option = document.createElement("option");
         option.value = subject.code;
         option.textContent = subject.name;
