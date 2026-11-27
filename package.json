@@ -1,0 +1,11 @@
+{
+  "name": "titchfield-high-school-finance",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check js/TranHistory.js && node --check js/edit.js && node --check js/finance-common.js && node --check js/financial-ledger.js && node --check js/form.js && node --check js/login.js && node --check js/matrix.js && node --check js/profile.js && node --check js/reports.js && node --check js/role-nav.js && node --check js/viewer.js && node --check js/search.js && node --check js/student-id.js && node --check js/validation.js"
+  }
+}
